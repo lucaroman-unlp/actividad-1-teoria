@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuaderno Abierto · Galería de dibujos</title>
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+
+  <header class="cabecera">
+    <div class="cabecera__marca">
+      <a href="#inicio" class="marca__enlace">
+        <span class="marca__titulo">Cuaderno Abierto</span>
+        <span class="marca__subtitulo">galería de dibujos</span>
+      </a>
+    </div>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <ul class="nav__lista">
+        <li class="nav__item nav__item--desplegable">
+          <a href="#caricaturas" class="nav__enlace">Categorías</a>
+          <ul class="nav__submenu">
+            <li><a href="#caricaturas">Caricaturas</a></li>
+            <li><a href="#paisajes">Paisajes</a></li>
+            <li><a href="#anime">Anime</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="#quien" class="nav__enlace">Quién mantiene el sitio</a></li>
+        <li class="nav__item"><a href="#contacto" class="nav__enlace">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenido">
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="panel">
+      <p class="panel__eyebrow"><a href="#inicio">&larr; Volver a la galería</a></p>
+      <h1 class="panel__titulo">Contacto</h1>
+      <p class="panel__intro">Dejá tus datos y te respondemos a la brevedad.</p>
+
+      <form class="formulario" action="mailto:contacto@cuadernoabierto.com" method="post" enctype="text/plain">
+        <div class="formulario__campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="Nombre" required>
+        </div>
+
+        <div class="formulario__campo">
+          <label for="apellido">Apellido</label>
+          <input type="text" id="apellido" name="Apellido" required>
+        </div>
+
+        <div class="formulario__campo">
+          <label for="mail">Correo electrónico</label>
+          <input type="email" id="mail" name="Mail" required>
+        </div>
+
+        <div class="formulario__campo">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="Telefono">
+        </div>
+
+        <button type="submit" class="boton">Enviar mensaje</button>
+      </form>
+    </section>
+
+    <!-- QUIEN MANTIENE EL SITIO -->
+    <section id="quien" class="panel">
+      <p class="panel__eyebrow"><a href="#inicio">&larr; Volver a la galería</a></p>
+      <h1 class="panel__titulo">Quién mantiene el sitio</h1>
+      <div class="ficha">
+        <p class="ficha__nombre">Luca Roman</p>
+        <p class="ficha__detalle">Estudiante de la Universidad Nacional de La Plata (UNLP).</p>
+        <p class="ficha__detalle">Este sitio es un espacio personal donde se publican dibujos propios, organizados por categoría, a modo de cuaderno de bocetos digital.</p>
+      </div>
+    </section>
+
+    <!-- CARICATURAS -->
+    <section id="caricaturas" class="panel">
+      <p class="panel__eyebrow"><a href="#inicio">&larr; Volver a la galería</a></p>
+      <h1 class="panel__titulo">Caricaturas</h1>
+      <p class="panel__intro">Retratos exagerados y trazos con humor.</p>
+
+      <div class="galeria">
+        <figure class="dibujo">
+          <img src="imagenes/caricatura1.png" alt="Caricatura 1">
+          <figcaption>Caricatura 1</figcaption>
+        </figure>
+        <figure class="dibujo">
+          <img src="imagenes/caricatura2.png" alt="Caricatura 2">
+          <figcaption>Caricatura 2</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PAISAJES -->
+    <section id="paisajes" class="panel">
+      <p class="panel__eyebrow"><a href="#inicio">&larr; Volver a la galería</a></p>
+      <h1 class="panel__titulo">Paisajes</h1>
+      <p class="panel__intro">Escenas de lugares, reales e imaginados.</p>
+
+      <div class="galeria">
+        <figure class="dibujo">
+          <img src="imagenes/paisaje1.png" alt="Paisaje 1">
+          <figcaption>Paisaje 1</figcaption>
+        </figure>
+        <figure class="dibujo">
+          <img src="imagenes/paisaje2.png" alt="Paisaje 2">
+          <figcaption>Paisaje 2</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ANIME -->
+    <section id="anime" class="panel">
+      <p class="panel__eyebrow"><a href="#inicio">&larr; Volver a la galería</a></p>
+      <h1 class="panel__titulo">Anime</h1>
+      <p class="panel__intro">Personajes y escenas de estilo anime.</p>
+
+      <div class="galeria">
+        <figure class="dibujo">
+          <img src="imagenes/anime1.png" alt="Anime 1">
+          <figcaption>Anime 1</figcaption>
+        </figure>
+        <figure class="dibujo">
+          <img src="imagenes/anime2.png" alt="Anime 2">
+          <figcaption>Anime 2</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- INICIO (por defecto; se oculta cuando cualquier otra sección está activa) -->
+    <section id="inicio" class="panel panel--inicio">
+      <h1 class="panel__titulo">Bienvenido</h1>
+      <p class="panel__intro">Elegí una categoría del menú para ver los dibujos, o visitá las secciones de contacto e información del sitio.</p>
+
+      <div class="inicio__accesos">
+        <a href="#caricaturas" class="acceso">
+          <span class="acceso__titulo">Caricaturas</span>
+          <span class="acceso__detalle">Retratos con humor</span>
+        </a>
+        <a href="#paisajes" class="acceso">
+          <span class="acceso__titulo">Paisajes</span>
+          <span class="acceso__detalle">Lugares y horizontes</span>
+        </a>
+        <a href="#anime" class="acceso">
+          <span class="acceso__titulo">Anime</span>
+          <span class="acceso__detalle">Personajes de estilo anime</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p>Cuaderno Abierto — sitio mantenido por Luca Roman, estudiante de la UNLP.</p>
+  </footer>
+
+</body>
+</html>

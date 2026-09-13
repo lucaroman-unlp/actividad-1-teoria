@@ -1,0 +1,389 @@
+/* =========================================================
+   Cuaderno Abierto — estilosIA.css
+   Sitio estático, sin scripts. La navegación entre secciones
+   se resuelve con anclas (#id) y el pseudo-selector :target.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root {
+  /* Paleta */
+  --pared: #262624;         /* fondo general, tipo pared de galería */
+  --papel: #F6F3EC;         /* paneles / mat de los cuadros */
+  --tinta: #201F1D;         /* texto principal */
+  --tinta-suave: #5B5750;   /* texto secundario */
+  --marco: #3A3835;         /* marco de los dibujos y bordes fuertes */
+  --acento: #B5432F;        /* rojo lápiz corrector, para acentos puntuales */
+  --linea: #D8D2C4;         /* líneas divisorias suaves sobre papel */
+
+  /* Tipografía */
+  --fuente-titulo: 'Fraunces', Georgia, serif;
+  --fuente-texto: 'Work Sans', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--pared);
+  color: var(--tinta);
+  font-family: var(--fuente-texto);
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------------------------------------------------------
+   Cabecera y navegación
+   --------------------------------------------------------- */
+
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.75rem;
+  background: var(--pared);
+  border-bottom: 1px solid rgba(246, 243, 236, 0.12);
+}
+
+.marca__enlace {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.marca__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--papel);
+}
+
+.marca__subtitulo {
+  font-size: 0.8rem;
+  color: rgba(246, 243, 236, 0.6);
+}
+
+.nav__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__enlace {
+  display: inline-block;
+  padding: 0.35rem 0;
+  color: var(--papel);
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+}
+
+.nav__enlace:hover,
+.nav__enlace:focus {
+  border-bottom-color: var(--acento);
+}
+
+/* Desplegable de categorías, sin scripts: se abre al pasar
+   el mouse o al enfocar el elemento con el teclado. */
+.nav__item--desplegable {
+  position: relative;
+}
+
+.nav__submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 11rem;
+  margin: 0.4rem 0 0;
+  padding: 0.4rem 0;
+  list-style: none;
+  background: var(--papel);
+  border: 1px solid var(--marco);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  z-index: 10;
+}
+
+.nav__item--desplegable:hover .nav__submenu,
+.nav__item--desplegable:focus-within .nav__submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav__submenu li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--tinta);
+  font-size: 0.9rem;
+}
+
+.nav__submenu li a:hover,
+.nav__submenu li a:focus {
+  background: var(--linea);
+}
+
+/* ---------------------------------------------------------
+   Lógica de secciones vía :target (sin JavaScript)
+   --------------------------------------------------------- */
+
+.contenido {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.75rem 4rem;
+}
+
+.panel { display: none; }
+
+#contacto:target,
+#quien:target,
+#caricaturas:target,
+#paisajes:target,
+#anime:target {
+  display: block;
+}
+
+/* #inicio se muestra por defecto y se oculta apenas cualquier
+   otra sección pasa a ser el destino activo (:target). El orden
+   de las secciones en el HTML hace posible este selector. */
+#inicio { display: block; }
+
+#contacto:target ~ #inicio,
+#quien:target ~ #inicio,
+#caricaturas:target ~ #inicio,
+#paisajes:target ~ #inicio,
+#anime:target ~ #inicio {
+  display: none;
+}
+
+.panel {
+  background: var(--papel);
+  border: 1px solid var(--marco);
+  padding: 2.25rem 2rem;
+}
+
+.panel--inicio {
+  text-align: center;
+}
+
+.panel__eyebrow {
+  margin: 0 0 1.25rem;
+  font-size: 0.85rem;
+}
+
+.panel__eyebrow a {
+  color: var(--tinta-suave);
+  border-bottom: 1px solid var(--linea);
+}
+
+.panel__eyebrow a:hover { color: var(--acento); }
+
+.panel__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin: 0 0 0.5rem;
+}
+
+.panel__intro {
+  color: var(--tinta-suave);
+  max-width: 42ch;
+  margin: 0 auto 1.75rem;
+}
+
+.panel--inicio .panel__intro { margin-left: auto; margin-right: auto; }
+#contacto .panel__intro,
+#quien .panel__intro,
+#caricaturas .panel__intro,
+#paisajes .panel__intro,
+#anime .panel__intro { margin-left: 0; }
+
+/* ---------------------------------------------------------
+   Accesos rápidos de la sección de inicio
+   --------------------------------------------------------- */
+
+.inicio__accesos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.acceso {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--linea);
+}
+
+.acceso:hover { border-color: var(--acento); }
+
+.acceso__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.15rem;
+}
+
+.acceso__detalle {
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+
+/* ---------------------------------------------------------
+   Galería de dibujos: mismo marco y relleno para todos
+   --------------------------------------------------------- */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+}
+
+.dibujo {
+  margin: 0;
+  padding: 0.85rem;
+  background: #FFFFFF;
+  border: 1px solid var(--marco);
+  box-shadow: 5px 5px 0 rgba(58, 56, 53, 0.15);
+  text-align: center;
+}
+
+.dibujo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--linea);
+}
+
+.dibujo figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+
+/* ---------------------------------------------------------
+   Formulario de contacto
+   --------------------------------------------------------- */
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 26rem;
+}
+
+.formulario__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.formulario__campo label {
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+
+.formulario__campo input {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--marco);
+  background: #FFFFFF;
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+}
+
+.formulario__campo input:focus {
+  outline: 2px solid var(--acento);
+  outline-offset: 1px;
+}
+
+.boton {
+  align-self: flex-start;
+  padding: 0.65rem 1.4rem;
+  background: var(--marco);
+  color: var(--papel);
+  border: 1px solid var(--marco);
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.boton:hover { background: var(--acento); border-color: var(--acento); }
+
+/* ---------------------------------------------------------
+   Ficha "quién mantiene el sitio"
+   --------------------------------------------------------- */
+
+.ficha__nombre {
+  font-family: var(--fuente-titulo);
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+}
+
+.ficha__detalle {
+  color: var(--tinta-suave);
+  max-width: 42ch;
+}
+
+/* ---------------------------------------------------------
+   Pie de página
+   --------------------------------------------------------- */
+
+.pie {
+  text-align: center;
+  padding: 1.5rem;
+  color: rgba(246, 243, 236, 0.6);
+  font-size: 0.8rem;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .cabecera {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav__lista {
+    gap: 1.1rem;
+  }
+
+  .inicio__accesos {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .nav__submenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid var(--linea);
+    margin-top: 0.4rem;
+  }
+
+  .nav__item--desplegable:hover .nav__submenu,
+  .nav__item--desplegable:focus-within .nav__submenu {
+    display: block;
+  }
+}
