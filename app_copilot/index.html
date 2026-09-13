@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Dibujos - Luca Roman</title>
+    <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <h1 class="navbar-logo">Galería de Dibujos</h1>
+            <ul class="navbar-menu">
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li><a href="#autor" class="nav-link">Acerca de</a></li>
+                <li class="dropdown">
+                    <span class="nav-link dropdown-toggle">Categorías ▼</span>
+                    <div class="dropdown-content">
+                        <a href="#caricaturas" class="dropdown-link">Caricaturas</a>
+                        <a href="#paisajes" class="dropdown-link">Paisajes</a>
+                        <a href="#anime" class="dropdown-link">Anime</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección Principal -->
+    <main>
+        <!-- Sección de Inicio -->
+        <section id="inicio" class="section-active">
+            <div class="hero">
+                <h2>Bienvenido a mi Galería de Dibujos</h2>
+                <p>Explora mis trabajos en diferentes categorías: caricaturas, paisajes y anime.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Caricaturas -->
+        <section id="caricaturas" class="galeria-section">
+            <div class="container">
+                <h2 class="section-title">Caricaturas</h2>
+                <div class="galeria-grid">
+                    <div class="imagen-card">
+                        <img src="imagenes/caricatura1.png" alt="Caricatura 1" class="imagen">
+                        <p class="imagen-titulo">Caricatura 1</p>
+                    </div>
+                    <div class="imagen-card">
+                        <img src="imagenes/caricatura2.png" alt="Caricatura 2" class="imagen">
+                        <p class="imagen-titulo">Caricatura 2</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Paisajes -->
+        <section id="paisajes" class="galeria-section">
+            <div class="container">
+                <h2 class="section-title">Paisajes</h2>
+                <div class="galeria-grid">
+                    <div class="imagen-card">
+                        <img src="imagenes/paisaje1.png" alt="Paisaje 1" class="imagen">
+                        <p class="imagen-titulo">Paisaje 1</p>
+                    </div>
+                    <div class="imagen-card">
+                        <img src="imagenes/paisaje2.png" alt="Paisaje 2" class="imagen">
+                        <p class="imagen-titulo">Paisaje 2</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Anime -->
+        <section id="anime" class="galeria-section">
+            <div class="container">
+                <h2 class="section-title">Anime</h2>
+                <div class="galeria-grid">
+                    <div class="imagen-card">
+                        <img src="imagenes/anime1.png" alt="Anime 1" class="imagen">
+                        <p class="imagen-titulo">Anime 1</p>
+                    </div>
+                    <div class="imagen-card">
+                        <img src="imagenes/anime2.png" alt="Anime 2" class="imagen">
+                        <p class="imagen-titulo">Anime 2</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contacto" class="form-section">
+            <div class="container">
+                <h2 class="section-title">Formulario de Contacto</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Sección de Autor -->
+        <section id="autor" class="about-section">
+            <div class="container">
+                <h2 class="section-title">Acerca de</h2>
+                <div class="about-content">
+                    <h3>Luca Roman</h3>
+                    <p class="author-subtitle">Estudiante de la Universidad Nacional de La Plata (UNLP)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Luca Roman - Galería de Dibujos. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
